@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider/index";
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { Text } from "react-native";
+// import { NativeBaseProvider, extendTheme } from "native-base";
+
+// Define una configuración personalizada para NativeBase
+// const config = {
+//   suppressColorAccessibilityWarning: true,
+//   // Deshabilita las advertencias de SSRProvider
+//   useRNUILib: false
+// };
+
+// Extiende el tema predeterminado
+// const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <GluestackUIProvider mode="light">
+        <View style={styles.container}>
+          <Text>AppChat</Text>
+          <StatusBar style="auto" />
+        </View>
+      </GluestackUIProvider>
+    </NavigationContainer>
   );
 }
 
