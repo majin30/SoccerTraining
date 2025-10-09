@@ -1,132 +1,128 @@
 # ⚽ SoccerTraining App
 
-**SoccerTraining** es una aplicación móvil profesional de **entrenamiento deportivo especializado en fútbol**, desarrollada con **React Native (Expo)**.  
-Su objetivo es brindar a jugadores, entrenadores y entusiastas una plataforma completa para mejorar su rendimiento físico, técnico y táctico.
+**SoccerTraining** es una aplicación móvil desarrollada con **React Native (Expo)** que permite a jugadores, entrenadores y aficionados al fútbol llevar un control completo de su entrenamiento, progreso físico, nutrición y desarrollo técnico.  
+El objetivo es ofrecer una plataforma moderna e intuitiva que motive al usuario a mejorar su rendimiento deportivo día a día.
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## 🖼️ Capturas de pantalla
 
-- **React Native** (Expo)
-- **React Navigation** (`@react-navigation/native`, `@react-navigation/bottom-tabs`, `@react-navigation/native-stack`)
-- **Lottie Animations** (para la intro animada del logo)
-- **Expo Vector Icons** (para íconos en la barra inferior)
-- **Metro Bundler / Yarn**
+A continuación se muestran algunas vistas actuales de la app:
+
+<p align="center">
+  <img src="./src/screenshots/Pantalla1.jpg" width="250" />
+  <img src="./src/screenshots/Pantalla2.jpg" width="250" />
+  <img src="./src/screenshots/Pantalla3.jpg" width="250" />
+  <img src="./src/screenshots/Pantalla4.jpg" width="250" />
+  <img src="./src/screenshots/CambiarDatos.jpg" width="250" />
+</p>
+
+> 💬 Estas imágenes corresponden a la versión actual en desarrollo de **SoccerTraining**.
+
+## 🚀 Tecnologías principales
+
+- **React Native** (Expo SDK)
+- **React Navigation v6**
+- **Lottie Animations** (para animaciones del logo y pantallas intro)
+- **Expo Vector Icons**
 - **JavaScript (ES6+)**
-- **Arquitectura modular basada en componentes**
+- **Expo Go** para ejecución y pruebas en dispositivos reales
+- **Yarn** como manejador de dependencias
 
 ---
 
 ## 🧭 Estructura general del proyecto
 
+```plaintext
 SoccerTraining/
 ├── App.js
+├── app.json
 ├── package.json
 ├── assets/
-│ ├── images/
-│ │ └── bg-stadium.png
-│ └── animations/
-│ └── logo.json
+│   ├── images/
+│   │   └── bg-stadium.png
+│   └── animations/
+│       └── logo.json
 ├── src/
-│ ├── navigations/
-│ │ ├── AppNavigation.js
-│ │ ├── HandlerNavigation.js
-│ │ ├── stacks/
-│ │ │ ├── AuthNavigation.js
-│ │ │ ├── TrainingNavigation.js
-│ │ │ ├── ProgressNavigation.js
-│ │ │ ├── NutritionNavigation.js
-│ │ │ ├── SettingsNavigation.js
-│ │ └── BottomTabNavigation/
-│ │ └── BottomTabNavigation.js
-│ ├── screens/
-│ │ ├── Auth/
-│ │ │ ├── AuthStartScreen.js
-│ │ │ ├── LoginScreen.js
-│ │ │ ├── RegisterScreen.js
-│ │ ├── Training/
-│ │ │ ├── TrainingDashboardScreen.js
-│ │ │ ├── ExerciseDetailScreen.js
-│ │ │ ├── CustomTrainingScreen.js
-│ │ ├── Progress/
-│ │ │ ├── ProgressOverviewScreen.js
-│ │ │ ├── HistoryScreen.js
-│ │ │ ├── AchievementsScreen.js
-│ │ ├── Nutrition/
-│ │ │ ├── NutritionDashboardScreen.js
-│ │ │ ├── HydrationScreen.js
-│ │ │ ├── SupplementsScreen.js
-│ │ ├── Settings/
-│ │ │ ├── SettingsScreen.js
-│ │ │ ├── EditProfileScreen.js
-│ │ │ ├── NotificationsScreen.js
-│ │ └── Global/
-│ │ ├── CameraScreen.js
-│ │ ├── UserProfileScreen.js
-│ │ ├── ImageFullScreen.js
-│ └── utils/
-│ └── screens.js
+│   ├── navigations/
+│   │   ├── AppNavigation.js
+│   │   ├── HandlerNavigation.js
+│   │   ├── stacks/
+│   │   │   ├── AuthNavigation.js
+│   │   │   ├── TrainingNavigation.js
+│   │   │   ├── ProgressNavigation.js
+│   │   │   ├── NutritionNavigation.js
+│   │   │   └── SettingsNavigation.js
+│   │   └── BottomTabNavigation/
+│   │       └── BottomTabNavigation.js
+│   ├── screens/
+│   │   ├── Auth/
+│   │   │   ├── AuthStartScreen.js
+│   │   │   ├── LoginScreen.js
+│   │   │   └── RegisterScreen.js
+│   │   ├── Training/
+│   │   │   ├── TrainingDashboardScreen.js
+│   │   │   ├── ExerciseDetailScreen.js
+│   │   │   └── CustomTrainingScreen.js
+│   │   ├── Progress/
+│   │   │   ├── ProgressOverviewScreen.js
+│   │   │   ├── HistoryScreen.js
+│   │   │   └── AchievementsScreen.js
+│   │   ├── Nutrition/
+│   │   │   ├── NutritionDashboardScreen.js
+│   │   │   ├── HydrationScreen.js
+│   │   │   └── SupplementsScreen.js
+│   │   ├── Settings/
+│   │   │   ├── SettingsScreen.js
+│   │   │   ├── EditProfileScreen.js
+│   │   │   └── NotificationsScreen.js
+│   │   └── Global/
+│   │       ├── CameraScreen.js
+│   │       ├── UserProfileScreen.js
+│   │       └── ImageFullScreen.js
+│   └── utils/
+│       └── screens.js
 └── README.md
+🏁 Flujo principal de la aplicación
+🔹 Pantalla inicial (Intro Animada)
+Animación del logo (logo.json) con LottieView
 
-yaml
+Fondo de estadio (bg-stadium.png)
+
+Botón “INICIAR” que redirige al flujo de autenticación
+
+🔹 Autenticación
+AuthStartScreen.js → pantalla de bienvenida animada
+
+LoginScreen.js → inicio de sesión
+
+RegisterScreen.js → registro de nuevos usuarios
+
+🔹 Navegación principal (BottomTabNavigation)
+Una vez autenticado, el usuario accede al menú principal con 4 secciones:
+
+Sección	Descripción
+⚽ Entrenar	Rutinas, ejercicios, y entrenamientos personalizados
+📊 Progreso	Historial de rendimiento, gráficas y logros
+🥗 Nutrición	Planes alimenticios, hidratación y suplementos
+⚙️ Ajustes	Configuración, perfil y notificaciones
+
+Cada módulo cuenta con su propio stack navigator para mantener independencia y escalabilidad.
+
+🎨 Diseño y experiencia de usuario
+Estilo moderno tipo videojuego, fondo oscuro e interfaz deportiva.
+
+Tipografías limpias, botones redondeados y navegación fluida.
+
+Uso de LottieView para crear animaciones de alto impacto visual.
+
+Compatibilidad con Expo Go en Android e iOS.
+
+🧰 Scripts disponibles
+En el archivo package.json:
+
+json
 Copiar código
-
----
-
-## 🏁 Flujo de navegación
-
-### 🔹 Inicio (Intro Animada)
-- Animación Lottie del logo `logo.json`
-- Fondo de estadio (`bg-stadium.png`)
-- Botón flotante **INICIAR** que dirige al login.
-
-### 🔹 Autenticación
-- **LoginScreen** → Inicio de sesión de usuario.  
-- **RegisterScreen** → Registro de nuevos usuarios.
-
-### 🔹 Navegación principal (`BottomTabNavigation`)
-Una vez autenticado, el usuario accede al **menú principal con 4 secciones**:
-
-| Sección | Descripción |
-|----------|--------------|
-| ⚽ **Entrenar** | Acceso a rutinas, ejercicios personalizados, y creación de planes. |
-| 📊 **Progreso** | Seguimiento de rendimiento físico, historial y logros. |
-| 🥗 **Nutrición** | Planes alimenticios, hidratación y suplementos. |
-| ⚙️ **Ajustes** | Perfil, notificaciones y configuración general. |
-
-Cada módulo tiene su propio stack de navegación interno para mantener independencia y escalabilidad.
-
----
-
-## 💡 Diseño y experiencia de usuario
-
-- Estilo **oscuro y moderno**, inspirado en videojuegos deportivos.
-- Pantalla inicial tipo “intro de juego”.
-- Íconos dinámicos de **MaterialCommunityIcons**.
-- Tipografía profesional, botones redondeados y sombras suaves.
-- Transiciones suaves entre pantallas con **React Navigation**.
-
----
-
-## 🔧 Scripts disponibles
-
-En la raíz del proyecto, puedes ejecutar:
-
-| Comando | Descripción |
-|----------|-------------|
-| `yarn dev` | Inicia el proyecto en modo desarrollo (con túnel y caché limpia). |
-| `yarn start` | Inicia el servidor Metro Bundler normal. |
-| `yarn android` | Ejecuta la app en un emulador Android. |
-| `yarn ios` | Ejecuta la app en iOS (requiere macOS). |
-| `yarn web` | Inicia la app en navegador web. |
-
----
-
-## 🧰 Configuración del comando `yarn dev`
-
-En tu `package.json`:
-
-```json
 "scripts": {
   "dev": "expo start --tunnel -c",
   "start": "expo start",
@@ -134,42 +130,66 @@ En tu `package.json`:
   "ios": "expo run:ios",
   "web": "expo start --web"
 }
-Esto permite iniciar el proyecto rápidamente con:
+🔹 Comandos comunes
+Comando	Descripción
+yarn dev	Inicia el servidor Expo con túnel y caché limpia
+yarn start	Inicia el servidor Expo estándar
+yarn android	Compila la app para Android
+yarn ios	Compila la app para iOS
+yarn web	Ejecuta la app en navegador web
 
+⚙️ Dependencias principales
 bash
 Copiar código
-yarn dev
-🔮 Próximas funcionalidades planificadas
-Categoría	Descripción
-🧠 Entrenamientos inteligentes	Integrar IA para sugerir rutinas según el rendimiento del usuario.
-🕒 Calendario deportivo	Seguimiento de partidos, entrenamientos y descansos.
-🧾 Historial en la nube	Guardar datos en Firebase o Supabase.
-📷 Análisis de movimiento	Uso de cámara para analizar técnica y postura.
-👥 Modo entrenador	Perfiles de coach con gestión de jugadores y equipos.
-🔔 Notificaciones push	Recordatorios de entrenamiento y progreso diario.
+expo install react-native-screens react-native-safe-area-context
+yarn add @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs
+yarn add lottie-react-native
+yarn add react-native-vector-icons
+💡 Próximas características planificadas
+Módulo	Funcionalidad
+🧠 Entrenamientos IA	Recomendación automática de rutinas según el progreso del usuario
+🗓️ Calendario deportivo	Seguimiento de entrenamientos, descansos y torneos
+☁️ Sincronización en la nube	Integración con Firebase o Supabase
+📸 Análisis de movimiento	Detección de técnica mediante cámara del dispositivo
+🧾 Reportes PDF	Exportar informes de progreso personalizados
+👥 Modo entrenador	Control de equipos, jugadores y estadísticas grupales
+🔔 Notificaciones push	Recordatorios automáticos de entrenamiento o nutrición
 
-🧑‍💻 Contribución
+🧑‍💻 Desarrollador
+Autor: Jesús Majín
+📧 Email: majin356@gmail.com
+💼 Rol: Full Stack / Mobile Developer
+📱 Proyecto personal de mejora deportiva con visión profesional.
+
+🧾 Licencia
+Este proyecto se distribuye bajo la licencia MIT, lo que permite su uso, modificación y distribución libre con atribución.
+
+🏆 Objetivo general
+Crear una aplicación integral que combine entrenamiento, progreso físico, nutrición y análisis deportivo en una sola herramienta accesible, moderna y adaptable para futbolistas de todos los niveles.
+
+💬 Contribuciones
+¿Quieres colaborar en el desarrollo de SoccerTraining?
+
 Haz un fork del repositorio.
 
-Crea una rama con tu nueva característica:
+Crea una nueva rama:
 
 bash
 Copiar código
 git checkout -b feature/nueva-funcionalidad
-Haz tus cambios y sube un pull request.
+Haz tus cambios y súbelos:
 
-🧾 Licencia
-Este proyecto está bajo la licencia MIT.
-Puedes usarlo, modificarlo y distribuirlo libremente, siempre reconociendo al autor original.
+bash
+Copiar código
+git commit -m "Agregada nueva funcionalidad"
+git push origin feature/nueva-funcionalidad
+Envía un Pull Request.
 
-💬 Autor
-Desarrollado por:
-👤 JESÚS MAJÍN
-📧 majin356@gmail.com
-📱 Proyecto personal de entrenamiento digital y mejora deportiva.
+📸 Vista previa (en desarrollo)
+🖼️ Pantalla de inicio animada con logo Lottie
 
-🏆 Visión general
-SoccerTraining busca ser una de las apps más completas de entrenamiento de fútbol:
-una plataforma moderna, visualmente atractiva y técnicamente sólida,
-que combine rendimiento físico, progreso personal y motivación constante.
-El objetivo final es que cada jugador pueda entrenar como un profesional desde su móvil.
+⚽ Fondo dinámico de estadio (bg-stadium.png)
+
+🧭 Barra inferior de navegación con íconos temáticos
+
+📊 Visualización de progreso (en construcción)
