@@ -4,12 +4,26 @@ import { screens } from '../../utils/screens';
 
 const Stack = createNativeStackNavigator();
 
-export function ProgressNavigation() {
+export function ProgressNavigation({ route }) {
+  const token = route?.params?.token || null;
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={screens.tab.progress.overview} component={ProgressOverviewScreen} />
-      <Stack.Screen name={screens.tab.progress.history} component={HistoryScreen} />
-      <Stack.Screen name={screens.tab.progress.achievements} component={AchievementsScreen} />
+      <Stack.Screen 
+        name={screens.tab.progress.overview} 
+        component={ProgressOverviewScreen}
+        initialParams={{ token }}
+      />
+      <Stack.Screen 
+        name={screens.tab.progress.history} 
+        component={HistoryScreen}
+        initialParams={{ token }}
+      />
+      <Stack.Screen 
+        name={screens.tab.progress.achievements} 
+        component={AchievementsScreen}
+        initialParams={{ token }}
+      />
     </Stack.Navigator>
   );
 }

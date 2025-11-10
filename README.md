@@ -15,6 +15,14 @@ A continuación se muestran algunas vistas actuales de la app:
   <img src="./src/screenshots/Pantalla3.jpg" width="250" />
   <img src="./src/screenshots/Pantalla4.jpg" width="250" />
   <img src="./src/screenshots/CambiarDatos.jpg" width="250" />
+  <img src="./src/screenshots/1.jpg" width="250" />
+  <img src="./src/screenshots/2.jpg" width="250" />
+  <img src="./src/screenshots/3.jpg" width="250" />
+  <img src="./src/screenshots/4.jpg" width="250" />
+  <img src="./src/screenshots/5.jpg" width="250" />
+  <img src="./src/screenshots/6.jpg" width="250" />
+  <img src="./src/screenshots/7.jpg" width="250" />
+  <img src="./src/screenshots/8.jpg" width="250" />
 </p>
 
 > 💬 Estas imágenes corresponden a la versión actual en desarrollo de **SoccerTraining**.

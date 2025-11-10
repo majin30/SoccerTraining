@@ -1,42 +1,41 @@
-// src/navigations/AppNavigation.js
-
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabNavigation } from './BottomTabNavigation/BottomTabNavigation';
-import { screens } from '../utils/screens';
-import { CameraScreen, UserProfileScreen, ImageFullScreen } from '../screens/Global';
 
-/**
- * AppNavigation:
- * Define la navegación principal de la aplicación una vez autenticado el usuario.
- * Contiene el BottomTabNavigation y pantallas modales globales.
- */
+// 🧩 Pantallas globales o modales
+import { UserProfileScreen, CameraScreen, ImageFullScreen } from '../screens/Global';
+
 const Stack = createNativeStackNavigator();
 
-export function AppNavigation() {
+export function AppNavigation({ route }) {
+  // 📦 Si vienes desde el login, se puede recibir el token
+  const token = route?.params?.token || null;
+
   return (
-    <Stack.Navigator>
-      {/* Contenedor principal con las pestañas inferiores */}
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false, // Ocultamos la barra superior
+      }}
+    >
+      {/* 🏠 Navegación principal con tabs (Inicio, Progreso, Entrenamiento, etc.) */}
       <Stack.Screen
-        name={screens.tab.root}
+        name="BottomTabNavigation"
         component={BottomTabNavigation}
-        options={{ headerShown: false }}
+        initialParams={{ token }}
       />
 
-      {/* Pantallas globales (modales o externas a las tabs) */}
-      <Stack.Group screenOptions={{ presentation: 'modal', headerShown: false }}>
-        <Stack.Screen
-          name={screens.global.userProfileScreen}
-          component={UserProfileScreen}
-        />
-        <Stack.Screen
-          name={screens.global.cameraScreen}
-          component={CameraScreen}
-        />
-        <Stack.Screen
-          name={screens.global.imageFullScreen}
-          component={ImageFullScreen}
-        />
-      </Stack.Group>
+      {/* 👤 Pantalla de perfil de usuario */}
+      <Stack.Screen
+        name="UserProfileScreen"
+        component={UserProfileScreen}
+        initialParams={{ token }}
+      />
+
+      {/* 📸 Cámara */}
+      <Stack.Screen name="CameraScreen" component={CameraScreen} />
+
+      {/* 🖼️ Imagen completa */}
+      <Stack.Screen name="ImageFullScreen" component={ImageFullScreen} />
     </Stack.Navigator>
   );
 }

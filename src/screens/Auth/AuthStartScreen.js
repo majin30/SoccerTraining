@@ -7,6 +7,8 @@ export function AuthStartScreen({ navigation }) {
     <ImageBackground
       source={require('../../../assets/images/bg-stadium.png')}
       style={styles.container}
+      imageStyle={styles.backgroundImage}
+      resizeMode="contain"
     >
       <LottieView
         source={require('../../../assets/animations/logo.json')}
@@ -31,6 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000',
+  },
+  backgroundImage: {
+    opacity: 0.4,
+    resizeMode: 'contain',
   },
   logo: {
     width: 250,
