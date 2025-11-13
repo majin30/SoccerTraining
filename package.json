@@ -3,15 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "predev": "node scripts/update-api-url.js",
     "dev": "expo start",
-    "prestart": "node scripts/update-api-url.js",
     "start": "expo start",
-    "preandroid": "node scripts/update-api-url.js",
     "android": "expo start --android",
-    "preios": "node scripts/update-api-url.js",
     "ios": "expo start --ios",
-    "preweb": "node scripts/update-api-url.js",
     "web": "expo start --web"
   },
   "dependencies": {
