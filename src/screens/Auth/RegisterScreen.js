@@ -12,8 +12,7 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
-
-const API_URL = 'http://192.168.1.80:5000/api'; // ⚠️ Cambia esto por tu IP o túnel de Expo
+import { API_URL } from '../../config/api';
 
 export function RegisterScreen({ navigation }) {
   const [name, setName] = useState('');

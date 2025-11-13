@@ -7,9 +7,9 @@ import { UserProfileScreen, CameraScreen, ImageFullScreen } from '../screens/Glo
 
 const Stack = createNativeStackNavigator();
 
-export function AppNavigation({ route }) {
-  // 📦 Si vienes desde el login, se puede recibir el token
-  const token = route?.params?.token || null;
+export function AppNavigation({ route, token: propToken }) {
+  // 📦 Se prioriza el token recibido como prop (HandlerNavigation), luego route params (por ejemplo desde login)
+  const token = propToken ?? route?.params?.token ?? null;
 
   return (
     <Stack.Navigator

@@ -16,6 +16,10 @@ export const createTraining = async (req, res) => {
     checkAndUnlockAchievements(req.user._id).catch((err) => {
       console.error('Error al verificar logros:', err);
     });
+
+    console.log(
+      `[Training] Usuario ${req.user?.email ?? req.user?._id} creó un entrenamiento "${training.title}" (${training._id})`
+    );
     
     res.status(201).json(training);
   } catch (error) {
@@ -82,6 +86,9 @@ export const deleteTraining = async (req, res) => {
     }
 
     await training.deleteOne();
+    console.log(
+      `[Training] Usuario ${req.user?.email ?? req.user?._id} eliminó el entrenamiento "${training.title}" (${training._id})`
+    );
     res.json({ message: 'Entrenamiento eliminado correctamente' });
   } catch (error) {
     res.status(500).json({ message: 'Error al eliminar entrenamiento' });

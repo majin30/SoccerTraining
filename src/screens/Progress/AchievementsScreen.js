@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, RefreshControl } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const API_URL = 'http://192.168.1.80:5000/api'; // ⚠️ CAMBIA a tu IP local o túnel de Expo
+import { API_URL } from '../../config/api';
 
 export function AchievementsScreen({ route }) {
   const [token, setToken] = useState(null);

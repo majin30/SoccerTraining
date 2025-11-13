@@ -52,5 +52,5 @@ export function HandlerNavigation() {
   }
 
   // Si hay token → entra a la app, sino → login
-  return userToken ? <AppNavigation /> : <AuthNavigation />;
+  return userToken ? <AppNavigation token={userToken} /> : <AuthNavigation />;
 }

@@ -13,8 +13,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CommonActions } from '@react-navigation/native';
-
-const API_URL = 'http://192.168.1.80:5000/api'; // ⚠️ CAMBIA a tu IP local o túnel de Expo
+import { API_URL } from '../../config/api';
 
 export function SettingsScreen({ route, navigation }) {
   const [token, setToken] = useState(null);
@@ -145,6 +144,21 @@ export function SettingsScreen({ route, navigation }) {
           style: 'destructive',
           onPress: async () => {
             try {
+              const token = await AsyncStorage.getItem('userToken');
+              if (token) {
+                try {
+                  await fetch(`${API_URL}/auth/logout`, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      Authorization: `Bearer ${token}`,
+                    },
+                  });
+                } catch (logoutError) {
+                  console.warn('No se pudo notificar cierre de sesión:', logoutError);
+                }
+              }
+
               // Limpiar el token de AsyncStorage
               await AsyncStorage.removeItem('userToken');
               

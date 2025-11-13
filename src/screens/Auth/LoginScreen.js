@@ -10,9 +10,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'; // ✅ Para guardar el token
-
-// ⚠️ IMPORTANTE: cambia localhost por tu IP local o túnel de Expo (por ejemplo, http://192.168.X.X:5000/api o https://<tu-proyecto>.ngrok.io/api)
-const API_URL = 'http://192.168.1.80:5000/api';
+import { API_URL } from '../../config/api';
 
 export function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');

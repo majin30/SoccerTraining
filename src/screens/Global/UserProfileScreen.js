@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, Image, ActivityIndicator, Alert, ScrollView, To
 import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const API_URL = 'http://192.168.1.80:5000/api';
+import { API_URL } from '../../config/api';
 
 export function UserProfileScreen({ route, navigation }) {
   const [user, setUser] = useState(null);

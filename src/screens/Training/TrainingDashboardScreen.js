@@ -5,8 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 import { ExerciseCard } from '../../components/UI/ExerciseCard';
 import { screens } from '../../utils/screens';
-
-const API_URL = 'http://192.168.1.80:5000/api'; // ⚠️ CAMBIA a tu IP local o túnel de Expo
+import { API_URL } from '../../config/api';
 
 // Ejercicios predefinidos
 const predefinedExercises = [
@@ -95,7 +94,7 @@ const predefinedExercises = [
     id: 'tiros-puerta',
     title: 'Tiros a Puerta',
     description: 'Mejora tu precisión y potencia de tiro',
-    icon: 'target',
+    icon: 'medal-outline',
     color: '#FD79A8',
     sets: 5,
     reps: 10,
