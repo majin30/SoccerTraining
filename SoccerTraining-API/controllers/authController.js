@@ -53,9 +53,18 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = async (req, res) => {
   try {
-    console.log(`[Auth] Cierre de sesión: ${req.user?.email ?? 'desconocido'}`);
+    if (req.user) {
+      const timestamp = new Date().toLocaleString('es-ES', {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      });
+      console.log(`[Auth] Cierre de sesión: ${req.user.email} (${req.user.name || 'Sin nombre'}) - ${timestamp}`);
+    } else {
+      console.log(`[Auth] Cierre de sesión: usuario desconocido - ${new Date().toLocaleString('es-ES')}`);
+    }
     res.status(200).json({ message: 'Sesión cerrada' });
   } catch (error) {
+    console.error(`[Auth] Error al cerrar sesión:`, error.message);
     res.status(500).json({ message: 'Error al cerrar sesión' });
   }
 };
